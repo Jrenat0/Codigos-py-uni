@@ -8,8 +8,8 @@ peso_m=75   #Peso de muñecos en gramos
 def pesopaquete():
     while True:
         try:
-            p=int(input("Ingrese la cantidad de payasos que contiene el paquete: "))
-            if p<0:
+            payaso = int(input("Ingrese la cantidad de payasos que contiene el paquete: "))
+            if payaso < 0:
                 print("Ingrese una cantidad igual o mayor a 0")
             else:
                 break
@@ -19,10 +19,10 @@ def pesopaquete():
 
     while True:
         try:
-            m=int(input("Ingrese la cantidad de muñecos que contiene el paquete: "))
-            if m<0:
+            muneco = int(input("Ingrese la cantidad de muñecos que contiene el paquete: "))
+            if muneco < 0:
                 print("Ingrese una cantidad igual o mayor a 0")
-            elif m+p==0:
+            elif muneco + payaso == 0:
                 print("Porfavor ingrese almenos 1 articulo dentro del paquete para proceder.")
             else:
                 break
@@ -31,8 +31,8 @@ def pesopaquete():
 
     print(f"El pedido contiene {p+m} articulos con un peso total de {(p*peso_p)+(m*peso_m)}[g]")
 
-
-while True:
+menu = True
+while menu == True:
     print("+"*25)
     print("MENU REGISTRO DE ENVIO")
     print("+"*25)
@@ -44,7 +44,7 @@ while True:
             if opc<1 or opc>2:
                 print("Ingrese alguna de las 2 opciones")
             else:
-                break
+                menu = False
         except:
             print("Indique su opcion con un numero entero")
     if opc==1:
